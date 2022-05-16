@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:movies_app_flutter/utils/text.dart';
 import 'package:tmdb_api/tmdb_api.dart';
 
-import 'widgets/trending.dart';
+import 'widgets/upcoming.dart';
+import 'widgets/toprated.dart';
+import 'widgets/popular.dart';
 
 void main() => runApp(new MyApp());
 
@@ -14,8 +16,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         home: Home(),
         debugShowCheckedModeBanner: false,
-        theme:
-            ThemeData(brightness: Brightness.dark, primaryColor: Colors.amber));
+        theme: ThemeData(
+            brightness: Brightness.light,
+            //backgroundColor: Colors.red,
+            primaryColor: Colors.amber)
+    );
   }
 }
 
@@ -27,6 +32,8 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   //Lists of movies
   List trendingMoviesList = [];
+  List upcomingMoviesList = [];
+  List popularMoviesList = [];
   List topRatedMoviesList = [];
 
   //API KEY
@@ -46,33 +53,35 @@ class _HomeState extends State<Home> {
 
     //We get a Map from the API, not a List
     Map trendingResult = await tmdbWithCustomLogs.v3.trending.getTrending();
+    Map upcomingResult = await tmdbWithCustomLogs.v3.movies.getUpcoming();
+    Map popularResult = await tmdbWithCustomLogs.v3.movies.getPopular();
     Map topRatedResult = await tmdbWithCustomLogs.v3.movies.getTopRated();
 
     //Updating state
     setState(() {
       trendingMoviesList = trendingResult['results'];
+      upcomingMoviesList = upcomingResult['results'];
+      popularMoviesList = popularResult['results'];
       topRatedMoviesList = topRatedResult['results'];
     });
-    //print(trendingMoviesList);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      //backgroundColor: Colors.black,
       appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          title: const modified_text(
-            text: 'MoviesApp',
-            color: Colors.white,
-            size: 20,
-          )),
-      body: ListView(
-        children: [
-          TrendingMovies(trendingMovies: trendingMoviesList)
+          //backgroundColor: Colors.transparent,
+          backgroundColor: Colors.black87,
+          elevation: 15,
+          title: const modified_text(text: 'MoviesApp', color: Colors.white, size: 24,)
 
-        ]
       ),
+      body: ListView(children: [
+        UpcomingMovies(upcomingMovies: upcomingMoviesList),
+        PopularMovies(popularMovies: popularMoviesList),
+        TopRatedMovies(topratedMovies: topRatedMoviesList)
+      ]),
     );
   }
 }

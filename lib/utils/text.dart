@@ -14,7 +14,7 @@ class modified_text extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: GoogleFonts.roboto(color: color, fontSize: size),
+      style: GoogleFonts.roboto(color: color, fontSize: size, fontWeight: FontWeight.bold),
     );
   }
 }
