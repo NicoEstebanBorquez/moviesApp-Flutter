@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class modified_text extends StatelessWidget {
+class custom_text_bold extends StatelessWidget {
   final String text;
   final Color color;
   final double size;
 
-  const modified_text(
+  const custom_text_bold(
       {Key? key, required this.text, required this.color, required this.size})
       : super(key: key);
 
@@ -14,7 +14,7 @@ class modified_text extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: GoogleFonts.roboto(color: color, fontSize: size, fontWeight: FontWeight.bold),
+      style: GoogleFonts.nunito(color: color, fontSize: size, fontWeight: FontWeight.bold),
     );
   }
 }

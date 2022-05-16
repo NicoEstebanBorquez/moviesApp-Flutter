@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:movies_app_flutter/utils/text.dart';
-import 'package:tmdb_api/tmdb_api.dart';
+import 'package:movies_app_flutter/utils/custom_text_bold.dart';
+import 'package:movies_app_flutter/utils/custom_text_normal.dart';
 
 class MovieDetails extends StatelessWidget {
   final String title;
@@ -24,6 +24,10 @@ class MovieDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("$title"),
+        backgroundColor: Colors.black87,
+      ),
       backgroundColor: Colors.white,
       body: Container(
           child: ListView(children: [
@@ -57,7 +61,7 @@ class MovieDetails extends StatelessWidget {
         SizedBox(height: 15),
         Container(
             padding: EdgeInsets.all(10),
-            child: modified_text(
+            child: custom_text_bold(
               text: title,
               color: Colors.black,
               size: 26,
@@ -71,7 +75,7 @@ class MovieDetails extends StatelessWidget {
                 child: Image.network(poster_path)),
             Flexible(
               child: Container(
-                child: modified_text(
+                child: custom_text_normal(
                   text: overview,
                   color: Colors.black,
                   size: 16,
@@ -80,7 +84,7 @@ class MovieDetails extends StatelessWidget {
             ),
           ],
         )
-      ])),
+      ])), //body
     );
   }
 }

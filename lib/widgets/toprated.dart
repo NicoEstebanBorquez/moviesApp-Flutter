@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app_flutter/utils/text.dart';
+import 'package:movies_app_flutter/utils/custom_text_bold.dart';
 
 import 'package:movies_app_flutter/movieDetails.dart';
 
@@ -17,7 +17,7 @@ class TopRatedMovies extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             //Const?---------------------------------------------------
-            const modified_text(
+            const custom_text_bold(
               text: 'Top Rated Movies',
               color: Colors.black,
               size: 18,
@@ -41,11 +41,11 @@ class TopRatedMovies extends StatelessWidget {
                                         release_date: topratedMovies[index]
                                             ['release_date'],
                                         poster_path:
-                                            "https://image.tmdb.org/t/p/w300/" +
+                                            "https://image.tmdb.org/t/p/w500/" +
                                                 topratedMovies[index]
                                                     ['poster_path'],
                                         backdrop_path:
-                                            "https://image.tmdb.org/t/p/w300/" +
+                                            "https://image.tmdb.org/t/p/w500/" +
                                                 topratedMovies[index]
                                                     ['backdrop_path'],
                                         vote_average: topratedMovies[index]
@@ -63,17 +63,17 @@ class TopRatedMovies extends StatelessWidget {
                                 decoration: BoxDecoration(
                                     image: DecorationImage(
                                         image: NetworkImage(
-                                            "https://image.tmdb.org/t/p/w300/" +
+                                            "https://image.tmdb.org/t/p/w500/" +
                                                 topratedMovies[index]
                                                     ['poster_path']))),
                               ),
                               Container(
                                   //MOVIE TITLE -------------------------
-                                  child: modified_text(
+                                  child: custom_text_bold(
                                       text:
                                           topratedMovies[index]['title'] != null
                                               ? topratedMovies[index]['title']
-                                              : modified_text(
+                                              : custom_text_bold(
                                                   text: "Loading",
                                                   color: Colors.black,
                                                   size: 14),

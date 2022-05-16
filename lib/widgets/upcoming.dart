@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app_flutter/utils/text.dart';
+import 'package:movies_app_flutter/utils/custom_text_bold.dart';
 import 'package:movies_app_flutter/movieDetails.dart';
 
 class UpcomingMovies extends StatelessWidget {
@@ -16,7 +16,7 @@ class UpcomingMovies extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             //Const?---------------------------------------------------
-            const modified_text(
+            const custom_text_bold(
               text: 'Upcoming Movies',
               color: Colors.black,
               size: 18,
@@ -38,8 +38,8 @@ class UpcomingMovies extends StatelessWidget {
                                         title: upcomingMovies[index]['title'],
                                         overview: upcomingMovies[index]['overview'],
                                         release_date: upcomingMovies[index]['release_date'],
-                                        poster_path:"https://image.tmdb.org/t/p/w300/" +upcomingMovies[index]['poster_path'],
-                                        backdrop_path:"https://image.tmdb.org/t/p/w300/" +upcomingMovies[index]['backdrop_path'],
+                                        poster_path:"https://image.tmdb.org/t/p/w500/" +upcomingMovies[index]['poster_path'],
+                                        backdrop_path:"https://image.tmdb.org/t/p/w500/" +upcomingMovies[index]['backdrop_path'],
                                         vote_average:upcomingMovies[index]['vote_average'].toString(),
                                       )
                               ));
@@ -53,7 +53,7 @@ class UpcomingMovies extends StatelessWidget {
                                 decoration: BoxDecoration(
                                     image: DecorationImage(
                                         image: NetworkImage(
-                                            "https://image.tmdb.org/t/p/w300/" +
+                                            "https://image.tmdb.org/t/p/w500/" +
                                                 upcomingMovies[index]
                                                 ['poster_path']
                                         )
@@ -61,11 +61,11 @@ class UpcomingMovies extends StatelessWidget {
                                 ),
                               ),
                               Container( //MOVIE TITLE -------------------------
-                                  child: modified_text(
+                                  child: custom_text_bold(
                                       text: upcomingMovies[index]['title'] !=
                                           null
                                           ? upcomingMovies[index]['title']
-                                          : const modified_text(
+                                          : const custom_text_bold(
                                           text: "Loading",
                                           color: Colors.black,
                                           size: 14),

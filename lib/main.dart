@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:movies_app_flutter/utils/text.dart';
+import 'package:movies_app_flutter/utils/custom_text_bold.dart';
 import 'package:tmdb_api/tmdb_api.dart';
 
 import 'widgets/upcoming.dart';
@@ -74,7 +74,7 @@ class _HomeState extends State<Home> {
           //backgroundColor: Colors.transparent,
           backgroundColor: Colors.black87,
           elevation: 15,
-          title: const modified_text(text: 'MoviesApp', color: Colors.white, size: 24,)
+          title: const custom_text_bold(text: 'MoviesApp', color: Colors.white, size: 24,)
 
       ),
       body: ListView(children: [

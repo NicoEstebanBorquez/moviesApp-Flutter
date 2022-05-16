@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app_flutter/utils/text.dart';
+import 'package:movies_app_flutter/utils/custom_text_bold.dart';
 import 'package:movies_app_flutter/movieDetails.dart';
 
 class PopularMovies extends StatelessWidget {
@@ -16,7 +16,7 @@ class PopularMovies extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             //Const?---------------------------------------------------
-            const modified_text(
+            const custom_text_bold(
               text: 'Popular Movies',
               color: Colors.black,
               size: 18,
@@ -38,8 +38,8 @@ class PopularMovies extends StatelessWidget {
                                         title: popularMovies[index]['title'],
                                         overview: popularMovies[index]['overview'],
                                         release_date: popularMovies[index]['release_date'],
-                                        poster_path:"https://image.tmdb.org/t/p/w300/" +popularMovies[index]['poster_path'],
-                                        backdrop_path:"https://image.tmdb.org/t/p/w300/" +popularMovies[index]['backdrop_path'],
+                                        poster_path:"https://image.tmdb.org/t/p/w500/" +popularMovies[index]['poster_path'],
+                                        backdrop_path:"https://image.tmdb.org/t/p/w500/" +popularMovies[index]['backdrop_path'],
                                         vote_average:popularMovies[index]['vote_average'].toString(),
                                       )
                               ));
@@ -53,15 +53,15 @@ class PopularMovies extends StatelessWidget {
                                 decoration: BoxDecoration(
                                     image: DecorationImage(
                                         image: NetworkImage(
-                                            "https://image.tmdb.org/t/p/w300/" +
+                                            "https://image.tmdb.org/t/p/w500/" +
                                                 popularMovies[index]
                                                 ['poster_path']))),
                               ),
                               Container( //MOVIE TITLE -------------------------
-                                  child: modified_text(
+                                  child: custom_text_bold(
                                       text: popularMovies[index]['title'] != null
                                           ? popularMovies[index]['title']
-                                          : modified_text(
+                                          : custom_text_bold(
                                           text: "Loading",
                                           color: Colors.black,
                                           size: 14),
